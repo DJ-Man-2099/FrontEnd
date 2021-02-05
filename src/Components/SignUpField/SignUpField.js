@@ -1,6 +1,7 @@
 import React from "react";
 import NormalTextField from "../NormalTextField/NormalTextField";
 import PasswordTextField from "../PasswordField/PasswordField";
+import Terms from '../TermsAndConditions/Terms'
 
 const SignUpField = (props) => {
   return (
@@ -19,6 +20,11 @@ const SignUpField = (props) => {
         Error={props.PasswordError}
         onChange={props.onChange}
       />
+        <Terms
+          checked={props.checked}
+          onChange={props.changeAgreed}
+          AgreedError={props.AgreedError}
+        />
     </React.Fragment>
   );
 };

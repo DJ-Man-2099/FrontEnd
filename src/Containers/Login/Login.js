@@ -18,15 +18,16 @@ class Login extends Component {
     AgreedError: false,
   };
 
-  signin=()=>this.handleSigninCLicked(
-    //TODO: Add the Sign in Function Here 
-    ()=>console.log("Sign in Sucessfully")
-    )
+  signin = () =>
+    this.handleSigninCLicked(
+      //TODO: Add the Sign in Function Here
+      () => alert("Sign in Sucessfully")
+    );
 
-  signup=()=>this.handleSignupCLicked(
-    //TODO: Add the Sign up Function Here 
-    ()=>console.log("Sign up Sucessfully")
-  )
+  signup = () => this.handleSignupCLicked(
+      //TODO Add The Sign up Function Here
+      () => alert("Sign up Sucessfully")
+  );
 
   handleSigninCLicked = (callBack) => {
     if (this.state.logging_in) {
@@ -34,6 +35,7 @@ class Login extends Component {
       if (this.state.Email !== "" && this.state.Password !== "") {
         //This is where you add the Sign in Logic
         callBack();
+        this.initSignin()
       } else {
         this.HandleSigninError();
       }
@@ -43,21 +45,20 @@ class Login extends Component {
   };
 
   handleSignupCLicked = (callBack) => {
-    if (!this.state.logging_in) {
-      console.log("Signing up");
+    if (this.state.logging_in) {
+      this.initSignup();
+    }else{
       if (
         this.state.UserName !== "" &&
         this.state.Email !== "" &&
         this.state.Password !== "" &&
         this.state.Agreed
       ) {
-        //This is where you add the Sign up Logic
-        callBack()
+        callBack();
+        this.initSignin()
       } else {
-        this.HandleSignupError();
+        this.HandleSignupError()
       }
-    } else {
-      this.initSignup();
     }
   };
 
@@ -163,28 +164,22 @@ class Login extends Component {
         EmailError={this.state.EmailError}
         onChange={this.changeInput}
         PasswordError={this.state.PasswordError}
+        checked={this.state.Agreed}
+        changeAgreed={this.changeAgreed}
+        AgreedError={this.state.AgreedError}
       />
     );
     const Main_field = this.state.logging_in ? loginField : signupField;
 
     return (
-      <div className={classes.Fixed}>
-        <div className={classes.Login}>
-          <h1 className={classes.MainTitle}>Get Started</h1>
-          <div className={classes.Main}>{Main_field}</div>
-          <ButtonArray
-            logging_in={this.state.logging_in}
-            SigninCLicked={this.signin}
-            SignupCLicked={this.handleSignupCLicked}
-          />
-        </div>
-        {!this.state.logging_in ? (
-          <Terms
-            checked={this.state.Agreed}
-            onChange={this.changeAgreed}
-            AgreedError={this.state.AgreedError}
-          />
-        ) : null}
+      <div className={classes.Login}>
+        <h1 className={classes.MainTitle}>Get Started</h1>
+        <div className={classes.Main}>{Main_field}</div>
+        <ButtonArray
+          logging_in={this.state.logging_in}
+          SigninCLicked={this.signin}
+          SignupCLicked={this.signup}
+        />
       </div>
     );
   }

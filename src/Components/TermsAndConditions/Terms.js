@@ -3,7 +3,9 @@ import React from 'react';
 const Terms = (props) => {
     return (
         (
-            <div>
+            <div style={{
+              padding:"5% 0"
+            }}>
               <input
                 type="checkbox"
                 style={{

@@ -1,18 +1,11 @@
-.Fixed{
-    text-align: start;
-    flex: 2;
-    height: -webkit-fill-available;
-    width: -webkit-fill-available;
-    overflow: auto;
-}
-
 .Login{
+    text-align: start;
+    height: -webkit-fill-available;
     flex: 2;
     width: -webkit-fill-available;
     display: flex;
     flex-flow: column;
     justify-content: space-between;
-    overflow: auto;
 }
 
 .MainTitle{
@@ -21,11 +14,10 @@
 }
 
 .Main{
-    display: flex;
-    flex-flow: column;
+    display: block;
     justify-content: center;
-    min-height: 400px;
-    height: fit-content;
+    width: -webkit-fill-available;
+    overflow: auto;
 }
 
 .Title{

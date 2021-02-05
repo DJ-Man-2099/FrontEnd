@@ -7,7 +7,7 @@ const ButtonArray = (props) => {
     return (
         <div className={classes.ButtonArea}>
             <Button 
-            value="Sign up"
+            value={props.logging_in?"Sign up":"Submit"}
             isActive={!props.logging_in}
             onClick={props.SignupCLicked}
             />

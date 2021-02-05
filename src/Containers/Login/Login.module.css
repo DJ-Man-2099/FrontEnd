@@ -16,6 +16,8 @@
 .Main{
     display: block;
     justify-content: center;
+    height: -webkit-fill-available;
+    min-height: 75%;
     width: -webkit-fill-available;
     overflow: auto;
 }

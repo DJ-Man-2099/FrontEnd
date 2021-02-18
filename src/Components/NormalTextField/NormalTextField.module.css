@@ -14,6 +14,11 @@
     padding-left: 15px;
     font-size: large;
     outline: none;
+    transition: 200ms;
+}
+
+.Field:focus{
+    border: 5px solid blue;
 }
 
 .ErrorField{

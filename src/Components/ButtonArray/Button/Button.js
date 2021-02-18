@@ -12,6 +12,7 @@ const Button = (props) => {
               className={Looks}
               onClick={props.onClick}
             />
+    
     );
 }
  

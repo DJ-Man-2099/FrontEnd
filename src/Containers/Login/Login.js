@@ -3,7 +3,6 @@ import classes from "./Login.module.css";
 import LoginField from "../../Components/LoginField/LoginField";
 import SignUpField from "../../Components/SignUpField/SignUpField";
 import ButtonArray from "../../Components/ButtonArray/ButtonArray";
-import Terms from "../../Components/TermsAndConditions/Terms";
 
 class Login extends Component {
   state = {
@@ -24,10 +23,11 @@ class Login extends Component {
       () => alert("Sign in Sucessfully")
     );
 
-  signup = () => this.handleSignupCLicked(
+  signup = () =>
+    this.handleSignupCLicked(
       //TODO Add The Sign up Function Here
       () => alert("Sign up Sucessfully")
-  );
+    );
 
   handleSigninCLicked = (callBack) => {
     if (this.state.logging_in) {
@@ -35,7 +35,7 @@ class Login extends Component {
       if (this.state.Email !== "" && this.state.Password !== "") {
         //This is where you add the Sign in Logic
         callBack();
-        this.initSignin()
+        this.initSignin();
       } else {
         this.HandleSigninError();
       }
@@ -47,7 +47,7 @@ class Login extends Component {
   handleSignupCLicked = (callBack) => {
     if (this.state.logging_in) {
       this.initSignup();
-    }else{
+    } else {
       if (
         this.state.UserName !== "" &&
         this.state.Email !== "" &&
@@ -55,9 +55,9 @@ class Login extends Component {
         this.state.Agreed
       ) {
         callBack();
-        this.initSignin()
+        this.initSignin();
       } else {
-        this.HandleSignupError()
+        this.HandleSignupError();
       }
     }
   };

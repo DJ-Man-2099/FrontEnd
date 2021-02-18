@@ -1,10 +1,14 @@
-import classes from'./App.module.css';
-import LoginPage from './Containers/Login Full Page/LoginPage';
+import classes from "./App.module.css";
+import LoginPage from "./Containers/Login Full Page/LoginPage";
+import { BrowserRouter } from "react-router-dom";
+import HomePage from './Containers/HomePage/HomePage'
 
 function App() {
   return (
     <div className={classes.App}>
-    <LoginPage/>
+      <BrowserRouter>
+        <HomePage />
+      </BrowserRouter>
     </div>
   );
 }

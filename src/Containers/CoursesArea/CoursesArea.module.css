@@ -1,0 +1,64 @@
+.SwipeList{
+    display: flex;
+    max-width: 100%;
+    position: relative;
+    align-items: center;
+}
+
+.InnerSwipeList{
+    display: flex;
+    overflow: hidden;
+    justify-content: space-between;
+    max-width: 100%;
+    padding: 1% 0;
+    position: relative;
+    scroll-behavior: smooth;
+    align-items: center;
+}
+
+.Left{
+    position: absolute;
+    right: 0;
+    z-index: 100;
+    border-radius: 100%;
+    width: 4vw;
+    height: 4vw;
+    outline: none;
+}
+
+.Right{
+    position: absolute;
+    z-index: 100;
+    border-radius: 100%;
+    width: 4vw;
+    height: 4vw;
+    outline: none;
+}
+
+.Title{
+    text-align: start;
+    font-size: xx-large;
+    font-weight: bold;
+    padding-bottom: 1%;
+}
+
+.holder{
+    margin: 0 1%;
+    transition: 500ms;
+}
+
+.CoursesArea{
+    max-width: 100%;
+}
+
+.CourseTitle{
+    text-align: start;
+    font-size: x-large;
+    font-weight: bold;
+    padding-bottom: 5%;
+}
+
+.CourseDes{
+    text-align: start;
+    font-size: large;
+}

@@ -1,0 +1,33 @@
+.Title {
+    text-align: start;
+    font-size: xx-large;
+    font-weight: bold;
+    padding: 1vw 0vw 1vw 1vw;
+}
+
+.Main {
+    display: flex;
+    flex-flow: column;
+    border: 2px solid red;
+    justify-content: center;
+    align-items: flex-start;
+    text-overflow: clip;
+    height: 100%;
+}
+
+.CourseTitle{
+    text-align: start;
+    font-size: x-large;
+    font-weight: bold;
+    padding-bottom: 5%;
+}
+
+.CourseDes{
+    text-align: start;
+    font-size: large;
+}
+
+.holder{
+    padding: 1vw 1vw;
+    margin: auto;
+}

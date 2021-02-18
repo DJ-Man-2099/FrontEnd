@@ -1,0 +1,19 @@
+.Main{
+    background-image: linear-gradient(to right,rgb(255, 193, 255),rgb(217, 93, 248));
+    height: -webkit-fill-available;
+    width: -webkit-fill-available;
+    padding: 2%;
+    overflow: auto;
+}
+
+.Center{
+    display: flex;
+}
+
+.Home{
+    flex:3;
+}
+
+.upcoming{
+    flex:1;
+}

@@ -1,3 +1,5 @@
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, {useState, useRef} from "react";
 import icon from "../../assets/search.webp";
 import classes from "./Search.module.css";
@@ -19,7 +21,7 @@ const Search = (props) => {
     <div className={Main}>
       <input placeholder="Search Here" className={classes.input} onFocus={Focus} onBlur={Abort}/>
       <div className={classes.holder}>
-        <img src={icon} alt="" className={classes.image} />
+        <FontAwesomeIcon icon={faSearch} size='2x'/>
       </div>
     </div>
   );

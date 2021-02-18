@@ -1,7 +1,6 @@
 import React from "react";
 import classes from "./PostPreview.module.css";
 import Card from "../Card/Card";
-import CircularAvatar from "../CircularAvatar/CircularAvatar";
 import filler from "../../assets/Filler.png";
 
 const GroupPreview = (props) => {
@@ -9,7 +8,7 @@ const GroupPreview = (props) => {
     <Card
       style={{
         padding: "0",
-        border: "1px solid purple",
+        border: "2px solid purple",
         width: "25vw",
         overflow: "hidden",
         zIndex: "10",

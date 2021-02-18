@@ -14,20 +14,8 @@ class GroupsArea extends Component {
         <div className={classes.Title}>{this.props.Title}</div>
         <div className={classes.holder}>
           <div className={classes.MainPreview}></div>
-            <GroupPreview />
-          <div
-            style={{
-              position: 'absolute',
-              bottom:'0',
-              transform: "translate3d(0px,10px,0px)",
-              width: '23vw',
-              height:'10vh',
-              backgroundColor: 'rgb(185, 183, 183)',
-              border: '1px solid purple',
-              borderRadius: '15px',
-            }}
-          >
-          </div>
+          <GroupPreview />
+          <div className={classes.behind}></div>
         </div>
       </div>
     );

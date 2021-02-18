@@ -2,7 +2,8 @@
     display: flex;
     justify-content: space-between;
     width: 17vw;
-    height: 1vw;
+    padding-bottom: 1%;
+    align-items: center;
 }
 
 .image {
@@ -11,7 +12,9 @@
 }
 
 .holder {
-    margin: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 4vw;
     width: 4vw;
     position: relative;
@@ -32,4 +35,17 @@
     right: 5%;
     top: 5%;
     font-size: 1vw;
+}
+
+.status {
+    z-index: 20;
+    background-color: rgb(0, 255, 0);
+    border-radius: 100%;
+    width: 20%;
+    height: 20%;
+    border: 2px solid white;
+    position: absolute;
+    right: 0;
+    top: 0;
+
 }

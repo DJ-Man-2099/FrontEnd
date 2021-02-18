@@ -7,13 +7,14 @@
 }
 
 .Main {
+    height: 100%;
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
     text-overflow: clip;
-    height: 100%;
     position: relative;
+   
 }
 
 .holder {
@@ -22,4 +23,15 @@
     justify-content: center;
     height: 100%;
     padding: 0 3vw;
+}
+
+.behind{
+    position: absolute;
+    bottom: 0;
+    transform: translate3d(0px,10px,0px);
+    width: 23vw;
+    height:10vh;
+    border: 2px solid purple;
+    border-radius: 15px;
+    padding-bottom: 20%;
 }

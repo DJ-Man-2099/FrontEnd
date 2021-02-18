@@ -1,9 +1,8 @@
 import classes from "./CoursesArea.module.css";
 import React, { Component } from "react";
-import Card from "../../Components/Card/Card";
-import filler from "../../assets/Filler.png";
-import Left from '../../assets/Left.png'
-import Right from '../../assets/Right.png'
+import CoursePreview from "../../Components/CoursePreview/CoursePreview";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 class CoursesArea extends Component {
   constructor(props) {
@@ -16,25 +15,7 @@ class CoursesArea extends Component {
 
     for (let index = 0; index < 15; index++) {
       courses.push(
-        <div key={index} className={classes.holder}>
-          <Card style={{
-            backgroundColor:"red",
-            
-          }}  shadow>
-            <div className={classes.CourseTitle}>Course Name</div>
-            <div className={classes.CourseDes}>
-              Describe the contents of the course
-            </div>
-            <img
-              src={filler}
-              alt=""
-              style={{
-                maxHeight: "100%",
-                maxWidth: "100%",
-              }}
-            />
-          </Card>
-        </div>
+        <CoursePreview key={index}/>
       );
     }
 
@@ -42,30 +23,24 @@ class CoursesArea extends Component {
       <div className={classes.CoursesArea}>
         <div className={classes.Title}>Courses You're Taking</div>
         <div className={classes.SwipeList}>
-          <button
+          <div
             className={classes.Right}
             onClick={() => {
               this.CoursesArea.current.scrollLeft -= 250;
             }}
           >
-            <img src={Left} alt='' style={{
-              maxHeight: '70%',
-              maxWidth: '70%',
-            }}/>
-          </button>
+            <FontAwesomeIcon icon={faChevronLeft} size='4x'/>
+          </div>
           <div className={classes.InnerSwipeList} ref={this.CoursesArea}>
           {courses}
           </div>
-          <button className={classes.Left}            
+          <div className={classes.Left}            
             onClick={() => {
               this.CoursesArea.current.scrollLeft += 250;
             }}
           >
-          <img src={Right} alt='' style={{
-            maxHeight: '70%',
-              maxWidth: '70%',
-          }}/>
-          </button>
+          <FontAwesomeIcon icon={faChevronRight} size='4x'/>
+          </div>
         </div>
       </div>
     );

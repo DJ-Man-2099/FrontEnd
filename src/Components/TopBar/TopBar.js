@@ -8,12 +8,16 @@ const TopBar = (props) => {
 
   const [notif, setNotif] =useState(2);
 
+  const [message, setMessage] =useState(5);
+
   return (
     <div className={classes.Main}>
       <Welcome Name="David John" />
       <Search />
       <MiniMenu notif={notif} onNotifClick={()=>{
         setNotif(0)
+      }} message={message} onMessageClick={()=>{
+        setMessage(0)
       }}/>
     </div>
   );

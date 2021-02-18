@@ -12,7 +12,7 @@
 
 .Bottom {
     display: flex;
-    border-top: 1px solid purple;
+    border-top: 2px solid purple;
     height: 100%;
     padding: 1vw;
     box-sizing: border-box;

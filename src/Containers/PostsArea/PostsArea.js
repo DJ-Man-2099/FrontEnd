@@ -15,17 +15,7 @@ class PostsArea extends Component {
         <div className={classes.holder}>
           <div className={classes.MainPreview}></div>
             <PostPreview />
-          <div
-            style={{
-              position: 'absolute',
-              bottom:'0',
-              transform: "translate3d(0px,10px,0px)",
-              width: '23vw',
-              height:'10vh',
-              border: '1px solid purple',
-              borderRadius: '15px',
-            }}
-          >
+          <div className={classes.behind}>
           </div>
         </div>
       </div>

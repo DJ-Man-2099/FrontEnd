@@ -5,14 +5,17 @@ import TopBar from "../../Components/TopBar/TopBar";
 import CoursesArea from "../CoursesArea/CoursesArea";
 import GroupsArea from "../GroupsArea/GroupsArea";
 import PostsArea from "../PostsArea/PostsArea";
+import Upcoming from "../Upcoming/Upcoming";
 
 const HomePage = (props) => {
   return (
     <div className={classes.Main}>
-      <Card style={{
-        backgroundColor:"rgba(243, 238, 238, 0.651)",
-        height:"fit-content",
-      }}>
+      <Card
+        style={{
+          backgroundColor: "rgba(243, 238, 238, 0.9)",
+          height: "fit-content",
+        }}
+      >
         <TopBar />
         <div className={classes.Center}>
           <div
@@ -40,7 +43,7 @@ const HomePage = (props) => {
               </div>
             </Card>
           </div>
-          <div className={classes.upcoming}>What's up</div>
+          <Upcoming Host="DJ Man"/>
         </div>
       </Card>
     </div>

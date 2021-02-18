@@ -1,8 +1,8 @@
-import classes from "./GroupsArea.module.css";
+import classes from "./PostsArea.module.css";
 import React, { Component } from "react";
-import GroupPreview from "../../Components/GroupPreview/GroupPreview";
+import PostPreview from "../../Components/PostPreview/PostPreview";
 
-class GroupsArea extends Component {
+class PostsArea extends Component {
   render() {
     return (
       <div
@@ -14,7 +14,7 @@ class GroupsArea extends Component {
         <div className={classes.Title}>{this.props.Title}</div>
         <div className={classes.holder}>
           <div className={classes.MainPreview}></div>
-            <GroupPreview />
+            <PostPreview />
           <div
             style={{
               position: 'absolute',
@@ -22,7 +22,6 @@ class GroupsArea extends Component {
               transform: "translate3d(0px,10px,0px)",
               width: '23vw',
               height:'10vh',
-              backgroundColor: 'rgb(185, 183, 183)',
               border: '1px solid purple',
               borderRadius: '15px',
             }}
@@ -34,4 +33,4 @@ class GroupsArea extends Component {
   }
 }
 
-export default GroupsArea;
+export default PostsArea;

@@ -11,13 +11,7 @@ const Card = (props) => {
         " " +
         (props.shadow ? classes.shadow : "")
       }
-      style={{
-        backgroundColor: props.color,
-        padding: props.padding,
-        flex: props.flex,
-        alignItems: props.alignItems,
-        height: props.height,
-      }}
+      style={props.style}
     >
       {props.children}
     </div>

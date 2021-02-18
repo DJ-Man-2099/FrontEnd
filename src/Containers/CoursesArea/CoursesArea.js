@@ -17,7 +17,10 @@ class CoursesArea extends Component {
     for (let index = 0; index < 15; index++) {
       courses.push(
         <div key={index} className={classes.holder}>
-          <Card color="red" shadow shwidth={3}>
+          <Card style={{
+            backgroundColor:"red",
+            
+          }}  shadow>
             <div className={classes.CourseTitle}>Course Name</div>
             <div className={classes.CourseDes}>
               Describe the contents of the course

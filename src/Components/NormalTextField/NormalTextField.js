@@ -15,6 +15,7 @@ const TextField = (props) => {
           className={Field}
           placeholder={props.Name}
           onChange={props.onChange}
+          required
         />
         {props.Error?<p style={{
             color: 'red'

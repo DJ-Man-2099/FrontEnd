@@ -10,6 +10,7 @@ const PasswordTextField = (props) => {
         <React.Fragment>
         <h2 className={classes.Title}>Password</h2>
         <input
+        required
           type="password"
           name="Password"
           className={Field}

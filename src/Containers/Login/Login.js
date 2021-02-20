@@ -3,6 +3,7 @@ import classes from "./Login.module.css";
 import LoginField from "../../Components/LoginField/LoginField";
 import SignUpField from "../../Components/SignUpField/SignUpField";
 import ButtonArray from "../../Components/ButtonArray/ButtonArray";
+import { withRouter } from "react-router-dom";
 
 class Login extends Component {
   state = {
@@ -18,16 +19,17 @@ class Login extends Component {
   };
 
   signin = () =>
-    this.handleSigninCLicked(
-      //TODO: Add the Sign in Function Here
-      () => alert("Sign in Sucessfully")
-    );
+    this.handleSigninCLicked(() => {
+      alert("Sign in Sucessfully");
+      this.props.SignIn();
+      this.props.history.push("/");
+    });
 
   signup = () =>
-    this.handleSignupCLicked(
-      //TODO Add The Sign up Function Here
-      () => alert("Sign up Sucessfully")
-    );
+    this.handleSignupCLicked(() => {
+      alert("Sign up Sucessfully");
+      this.props.SignUp();
+    });
 
   handleSigninCLicked = (callBack) => {
     if (this.state.logging_in) {
@@ -185,4 +187,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);

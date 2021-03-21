@@ -5,25 +5,29 @@
     padding-bottom: 5%;
 }
 
+.dismiss{
+    position: absolute;
+    right: 0;
+    padding: 2% 3%;
+    cursor: pointer;
+}
+
 .CourseDes {
     text-align: start;
     font-size: large;
 }
 
-.dismiss{
-    cursor: pointer;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    padding: 2% 3%;
-}
-
 .Bottom {
+    display: flex;
+    border-top: 2px solid purple;
     height: 100%;
     padding: 1vw;
     box-sizing: border-box;
     justify-content: space-between;
     align-items: center;
+    background-color: rgb(212, 208, 208);
+    font-size: x-large;
+    font-weight: bold;
 }
 
 .Button {

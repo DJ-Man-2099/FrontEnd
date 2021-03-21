@@ -1,10 +1,10 @@
-import classes from "./HomePage.module.css";
+import classes from "./ProfilePage.module.css";
 import React from "react";
 import Card from "../../Components/Card/Card";
 import TopBar from "../../Components/TopBar/TopBar";
 import CoursesArea from "../CoursesArea/CoursesArea";
 import GroupsArea from "../GroupsArea/GroupsArea";
-import RecommendedGroups from "../RecommendedGroups/GroupsArea";
+import OldCourses from "../OldCourses/GroupsArea";
 import PostsArea from "../PostsArea/PostsArea";
 import Upcoming from "../Upcoming/Upcoming";
 
@@ -44,8 +44,8 @@ const HomePage = (props) => {
                 }}
               >
               
-                <RecommendedGroups flex="2" Title="Recommended Groups" />
-                <PostsArea flex="5" Title="Latest Posts" />
+                <OldCourses flex="2" Title="Your Passed Courses" />
+                <PostsArea flex="5" Title="Your Posts" />
               </div>
             </Card>
           </div>

@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import classes from "./MiniMenu.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBell, faCommentDots } from "@fortawesome/free-regular-svg-icons";
-import { faChevronDown, faSquare } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown, faSquare, faHome } from "@fortawesome/free-solid-svg-icons";
 import filler from "../../assets/Filler.png";
 import DropDownMenu from "../DropDownMenu/DropDownMenu";
+import { withRouter } from "react-router-dom";
+
 
 const MiniMenu = (props) => {
   const [Notif, setNotif] = useState(false);
@@ -14,6 +16,14 @@ const MiniMenu = (props) => {
   return (
     <div className={classes.full}>
       <div className={classes.Main}>
+      <div
+          className={classes.holder}
+          onClick={() => {
+            props.history.push('/');
+          }}
+        >
+          <FontAwesomeIcon icon={faHome} size="4x" fixedWidth />
+        </div>
         <div
           className={classes.holder}
           onClick={() => {
@@ -85,4 +95,4 @@ const MiniMenu = (props) => {
   );
 };
 
-export default MiniMenu;
+export default withRouter(MiniMenu);

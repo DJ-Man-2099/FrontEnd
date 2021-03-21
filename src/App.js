@@ -2,9 +2,10 @@ import classes from "./App.module.css";
 import LoginPage from "./Containers/Login Full Page/LoginPage";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import HomePage from "./Containers/HomePage/HomePage";
-import { useState } from "react";
+import React, { useState } from "react";
+import ProfilePage from "./Containers/ProfilePage/ProfilePage";
 
-const App=()=> {
+const App = () => {
   const [logged, setLogged] = useState(true);
 
   return (
@@ -12,11 +13,23 @@ const App=()=> {
       <div className={classes.App}>
         <Switch>
           {logged ? (
-            <Route path="/" exact render={
-              () => <HomePage Name='David John' id='5'/>
-            } />
+            <React.Fragment>
+              <Route
+                path="/"
+                exact
+                render={() => <HomePage Name="David John" id="5" />}
+              />
+              <Route
+                path="/profile"
+                exact
+                render={() => <ProfilePage Name="David John" id="5" />}
+              />
+            </React.Fragment>
           ) : (
-            <Redirect from="/" exact to="login" />
+            <React.Fragment>
+              <Redirect from="/" exact to="login" />
+              <Redirect from="/profile" exact to="login" />
+            </React.Fragment>
           )}
           <Route
             path="/login"
@@ -33,6 +46,6 @@ const App=()=> {
       </div>
     </BrowserRouter>
   );
-}
+};
 
 export default App;

@@ -5,14 +5,16 @@ import HomePage from "./Containers/HomePage/HomePage";
 import { useState } from "react";
 
 const App=()=> {
-  const [logged, setLogged] = useState(false);
+  const [logged, setLogged] = useState(true);
 
   return (
     <BrowserRouter>
       <div className={classes.App}>
         <Switch>
           {logged ? (
-            <Route path="/" exact component={HomePage} />
+            <Route path="/" exact render={
+              () => <HomePage Name='David John' id='5'/>
+            } />
           ) : (
             <Redirect from="/" exact to="login" />
           )}

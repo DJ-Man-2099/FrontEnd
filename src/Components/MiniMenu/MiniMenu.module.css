@@ -3,7 +3,17 @@
     justify-content: space-between;
     width: 17vw;
     padding-bottom: 1%;
-    align-items: center;
+    align-items: center;      
+}
+
+.full{
+    width: 17vw;
+    position: absolute;
+    right: 0;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-end;
+    z-index: 100;
 }
 
 .image {
@@ -13,6 +23,7 @@
 
 .holder {
     display: flex;
+    flex-flow: column;
     justify-content: center;
     align-items: center;
     height: 4vw;

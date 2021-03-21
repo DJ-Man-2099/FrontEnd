@@ -14,7 +14,7 @@ const PasswordTextField = (props) => {
           type="password"
           name="Password"
           className={Field}
-          placeholder="••••••••"
+          placeholder="ex:1234"
           value={props.value}
           onChange={props.onChange}
         />

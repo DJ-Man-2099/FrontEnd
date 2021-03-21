@@ -13,7 +13,7 @@ const TextField = (props) => {
           type="text"
           name={props.Name}
           className={Field}
-          placeholder={props.Name}
+          placeholder={"Enter Your "+props.Name+" Here"}
           onChange={props.onChange}
           required
         />

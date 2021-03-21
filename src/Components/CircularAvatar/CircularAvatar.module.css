@@ -4,8 +4,8 @@
     align-items: center;
     border-radius: 100%;
     border: 2px solid white;
-    width: 2vw;
-    height: 2vw;
-    padding: 0.5vw;
+    width: 3vw;
+    height: 3vw;
     background-color: purple;
+    overflow: hidden;
 }

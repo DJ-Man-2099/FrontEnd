@@ -5,6 +5,12 @@
     padding-bottom: 5%;
 }
 
+.dismiss{
+    position: absolute;
+    right: 0;
+    padding: 2% 3%;
+}
+
 .CourseDes {
     text-align: start;
     font-size: large;

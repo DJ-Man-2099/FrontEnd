@@ -1,21 +1,15 @@
 import React, { Component } from "react";
 import classes from "./Login.module.css";
 import LoginField from "../../Components/LoginField/LoginField";
-import SignUpField from "../../Components/SignUpField/SignUpField";
 import ButtonArray from "../../Components/ButtonArray/ButtonArray";
 import { withRouter } from "react-router-dom";
 
 class Login extends Component {
   state = {
-    logging_in: true,
-    UserName: "",
     Email: "",
     Password: "",
-    Agreed: false,
-    UserNameError: false,
     EmailError: false,
     PasswordError: false,
-    AgreedError: false,
   };
 
   signin = () =>
@@ -25,42 +19,14 @@ class Login extends Component {
       this.props.history.push("/");
     });
 
-  signup = () =>
-    this.handleSignupCLicked(() => {
-      alert("Sign up Sucessfully");
-      this.props.SignUp();
-    });
-
   handleSigninCLicked = (callBack) => {
-    if (this.state.logging_in) {
-      console.log("Signing in");
-      if (this.state.Email !== "" && this.state.Password !== "") {
-        //This is where you add the Sign in Logic
-        callBack();
-        this.initSignin();
-      } else {
-        this.HandleSigninError();
-      }
-    } else {
+    console.log("Signing in");
+    if (this.state.Email !== "" && this.state.Password !== "") {
+      //This is where you add the Sign in Logic
+      callBack();
       this.initSignin();
-    }
-  };
-
-  handleSignupCLicked = (callBack) => {
-    if (this.state.logging_in) {
-      this.initSignup();
     } else {
-      if (
-        this.state.UserName !== "" &&
-        this.state.Email !== "" &&
-        this.state.Password !== "" &&
-        this.state.Agreed
-      ) {
-        callBack();
-        this.initSignin();
-      } else {
-        this.HandleSignupError();
-      }
+      this.HandleSigninError();
     }
   };
 
@@ -76,19 +42,6 @@ class Login extends Component {
     }
   };
 
-  changeAgreed = () => {
-    this.setState((prevstate) => {
-      return {
-        Agreed: !prevstate.Agreed,
-      };
-    });
-    if (this.state.AgreedError) {
-      this.setState({
-        AgreedError: false,
-      });
-    }
-  };
-
   HandleSigninError() {
     if (this.state.Email === "") {
       this.setState({
@@ -100,42 +53,6 @@ class Login extends Component {
         PasswordError: true,
       });
     }
-  }
-
-  HandleSignupError() {
-    if (this.state.Email === "") {
-      this.setState({
-        EmailError: true,
-      });
-    }
-    if (this.state.Password === "") {
-      this.setState({
-        PasswordError: true,
-      });
-    }
-    if (this.state.UserName === "") {
-      this.setState({
-        UserNameError: true,
-      });
-    }
-    if (!this.state.Agreed) {
-      this.setState({
-        AgreedError: true,
-      });
-    }
-  }
-
-  initSignup() {
-    this.setState({
-      logging_in: false,
-      UserName: "",
-      Email: "",
-      Password: "",
-      Agreed: false,
-      UserNameError: false,
-      EmailError: false,
-      PasswordError: false,
-    });
   }
 
   initSignin() {
@@ -160,23 +77,11 @@ class Login extends Component {
         PasswordError={this.state.PasswordError}
       />
     );
-    const signupField = (
-      <SignUpField
-        UserNameError={this.state.UserNameError}
-        EmailError={this.state.EmailError}
-        onChange={this.changeInput}
-        PasswordError={this.state.PasswordError}
-        checked={this.state.Agreed}
-        changeAgreed={this.changeAgreed}
-        AgreedError={this.state.AgreedError}
-      />
-    );
-    const Main_field = this.state.logging_in ? loginField : signupField;
 
     return (
       <div className={classes.Login}>
         <h1 className={classes.MainTitle}>Get Started</h1>
-        <div className={classes.Main}>{Main_field}</div>
+        <div className={classes.Main}>{loginField}</div>
         <ButtonArray
           logging_in={this.state.logging_in}
           SigninCLicked={this.signin}

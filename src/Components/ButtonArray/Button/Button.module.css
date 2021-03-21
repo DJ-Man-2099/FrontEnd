@@ -12,8 +12,6 @@
     transition: 200ms;
 }
 
-.Button:hover,
-.Button:active,
 .Active{
     background-color: red;
     color:white;

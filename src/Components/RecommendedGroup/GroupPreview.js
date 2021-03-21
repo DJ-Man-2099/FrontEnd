@@ -4,6 +4,9 @@ import Card from "../Card/Card";
 import CircularNumber from "../CircularNumber/CircularAvatar";
 import CircularAvatar from "../CircularAvatar/CircularAvatar";
 import filler from "../../assets/Filler.png";
+import ImageHolder from "../ImageHolder/ImageHolder";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimesCircle } from "@fortawesome/free-regular-svg-icons";
 
 const GroupPreview = (props) => {
   let Joined = [];
@@ -44,50 +47,36 @@ const GroupPreview = (props) => {
     <Card
       style={{
         padding: "0",
+        height: "100%",
         border: "2px solid purple",
-        width: "25vw",
         overflow: "hidden",
         zIndex: "10",
+        position: 'relative',
       }}
     >
       <div
         style={{
-          margin: "10%",
+          margin: "5% 5%",
         }}
       >
-        <div className={classes.CourseTitle}>Course Name</div>
-        <div className={classes.CourseDes}>
-          Describe the contents of the course
-        </div>
-        <div
-          style={{
-            margin: "auto",
-            width: "70%",
-            height: "10vh",
-          }}
-        >
-          <img
-            src={filler}
-            alt=""
-            style={{
-              width: "100%",
-              maxHeight: "100%",
-              alignSelf: "center",
-              paddingTop: "1vw",
-            }}
-          />
-        </div>
+        <div className={classes.CourseTitle}>{props.Title}</div>
+        <div className={classes.CourseDes}>{props.Desc}</div>
+        <ImageHolder filler={filler} />
       </div>
       <div className={classes.Bottom}>
         <div
           className={classes.Button}
           onClick={() => {
             alert("Group Joined");
+            props.dismiss()
           }}
         >
           Join Group
         </div>
         <div className={classes.Joined}>{Joined}</div>
+      </div>
+      <div onClick={props.dismiss} className={classes.dismiss}>
+        <FontAwesomeIcon icon={faTimesCircle} size="4x" />
       </div>
     </Card>
   );

@@ -4,6 +4,7 @@ import Card from "../../Components/Card/Card";
 import TopBar from "../../Components/TopBar/TopBar";
 import CoursesArea from "../CoursesArea/CoursesArea";
 import GroupsArea from "../GroupsArea/GroupsArea";
+import RecommendedGroups from "../RecommendedGroups/GroupsArea";
 import PostsArea from "../PostsArea/PostsArea";
 import Upcoming from "../Upcoming/Upcoming";
 
@@ -16,7 +17,7 @@ const HomePage = (props) => {
           height: "fit-content",
         }}
       >
-        <TopBar />
+        <TopBar Name={props.Name} id={props.id}/>
         <div className={classes.Center}>
           <div
             style={{
@@ -31,6 +32,7 @@ const HomePage = (props) => {
               }}
             >
               <CoursesArea />
+              <GroupsArea />
               <div
                 style={{
                   display: "flex",
@@ -38,7 +40,8 @@ const HomePage = (props) => {
                   height: "100%",
                 }}
               >
-                <GroupsArea flex="2" Title="Recommended Groups" />
+              
+                <RecommendedGroups flex="2" Title="Recommended Groups" />
                 <PostsArea flex="5" Title="Latest Posts" />
               </div>
             </Card>

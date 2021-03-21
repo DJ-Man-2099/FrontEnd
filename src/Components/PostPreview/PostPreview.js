@@ -2,6 +2,9 @@ import React from "react";
 import classes from "./PostPreview.module.css";
 import Card from "../Card/Card";
 import filler from "../../assets/Filler.png";
+import ImageHolder from "../ImageHolder/ImageHolder";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimesCircle } from "@fortawesome/free-regular-svg-icons";
 
 const GroupPreview = (props) => {
   return (
@@ -9,40 +12,27 @@ const GroupPreview = (props) => {
       style={{
         padding: "0",
         border: "2px solid purple",
-        width: "25vw",
         overflow: "hidden",
         zIndex: "10",
+        height: "100%",
+        position: 'relative',
       }}
     >
       <div
         style={{
-          margin: "1vh 0",
+          margin: "1vh 1vw",
         }}
       >
-        <div
-          style={{
-            margin: "auto",
-            width: "70%",
-            height: "20vh",
-          }}
-        >
-          <img
-            src={filler}
-            alt=""
-            style={{
-              width: "100%",
-              maxHeight: "100%",
-              alignSelf: "center",
-              paddingTop: "1vw",
-            }}
-          />
-        </div>
+        <ImageHolder filler={filler}/>
       </div>
       <div className={classes.Bottom}>
-        <div className={classes.CourseTitle}>Course Name</div>
+        <div className={classes.CourseTitle}>{props.Title}</div>
         <div className={classes.CourseDes}>
-          Describe the contents of the course
+          {props.Desc}
         </div>
+      </div>
+      <div onClick={props.dismiss} className={classes.dismiss}>
+        <FontAwesomeIcon icon={faTimesCircle} size="4x" />
       </div>
     </Card>
   );

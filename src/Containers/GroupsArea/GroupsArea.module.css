@@ -1,37 +1,65 @@
+.SwipeList {
+    display: flex;
+    max-width: 100%;
+    position: relative;
+    align-items: center;
+}
+
+.InnerSwipeList {
+    display: flex;
+    overflow: hidden;
+    justify-content: space-between;
+    max-width: 100%;
+    margin: 0 5%;
+    padding: 1% 1%;
+    position: relative;
+    scroll-behavior: smooth;
+    align-items: center;
+}
+
+.Left {
+    cursor: pointer;
+    user-select: none;
+    position: absolute;
+    right: 0;
+    z-index: 70;
+    border-radius: 100%;
+    width: 4vw;
+    height: 4vw;
+    outline: none;
+    border: 3px solid purple;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aliceblue;
+}
+
+.Right {
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 70;
+    border-radius: 100%;
+    border: 3px solid purple;
+    overflow: hidden;
+    width: 4vw;
+    height: 4vw;
+    background-color: aliceblue;
+    outline: none;
+}
+
 .Title {
-    align-self: flex-start;
     text-align: start;
     font-size: xx-large;
     font-weight: bold;
-    padding: 1vw 0vw 1vw 1vw;
+    padding-bottom: 1%;
 }
 
-.Main {
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    text-overflow: clip;
-    height: 100%;
-    position: relative;
-}
-
-.holder {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    padding: 0 3vw;
-}
-
-.behind{
-    position: absolute;
-    bottom: 0;
-    transform: translate3d(0px,10px,0px);
-    width: 23vw;
-    height:10vh;
-    border: 2px solid purple;
-    border-radius: 15px;
-    padding-bottom: 10%;
-    background-color: rgb(185, 183, 183);
+.GroupsArea {
+    padding-top: 1%;
+    max-width: 100%;
 }

@@ -3,7 +3,7 @@
     flex-flow: column;
     align-items: flex-start;
     text-align: start;
-    
+    position: absolute;
 }
 
 .Title{

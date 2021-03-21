@@ -12,11 +12,13 @@ const TopBar = (props) => {
 
   return (
     <div className={classes.Main}>
-      <Welcome Name="David John" />
+      <Welcome Name={props.Name} />
       <Search />
-      <MiniMenu notif={notif} onNotifClick={()=>{
+      <MiniMenu id={props.id} notif={notif} onNotifClick={()=>{
+
         setNotif(0)
       }} message={message} onMessageClick={()=>{
+
         setMessage(0)
       }}/>
     </div>

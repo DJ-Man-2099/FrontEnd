@@ -2,8 +2,9 @@ import classes from "./PostsArea.module.css";
 import React, { Component } from "react";
 import PostPreview from "../../Components/PostPreview/PostPreview";
 import Card from "../../Components/Card/Card";
+import Post from "../../Components/Post/Post";
 class PostsArea extends Component {
-  state = { Posts: [], dismissed: false };
+  state = { Posts: [], dismissed: false, clicked: false };
 
   constructor() {
     super();
@@ -14,6 +15,19 @@ class PostsArea extends Component {
       });
     }
   }
+
+  hide = () => {
+    this.setState({
+      clicked: false,
+    });
+    this.dismiss();
+  };
+
+  show = () => {
+    this.setState({
+      clicked: true,
+    });
+  };
 
   dismiss = () => {
     this.setState(() => {
@@ -57,6 +71,7 @@ class PostsArea extends Component {
                 Title={this.state.Posts[this.state.Posts.length - 1].Title}
                 Desc={this.state.Posts[this.state.Posts.length - 1].Desc}
                 dismiss={this.dismiss}
+                show={this.show}
               />
             ) : (
               <Card
@@ -105,6 +120,12 @@ class PostsArea extends Component {
             ) : null}
           </div>
         </div>
+        {this.state.Posts.length!==0?<Post
+          clicked={this.state.clicked}
+          hide={this.hide}
+          Title={this.state.Posts[this.state.Posts.length - 1].Title}
+          Desc={this.state.Posts[this.state.Posts.length - 1].Desc}
+        />:null}
       </div>
     );
   }

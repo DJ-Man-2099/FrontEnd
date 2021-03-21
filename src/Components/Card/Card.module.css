@@ -4,8 +4,6 @@
     width: 100%;
     min-width: 20vw;
     border-radius: 15px;
-    top: 0;
-    left: 0;
     box-sizing: border-box;
     display: flex;
 }

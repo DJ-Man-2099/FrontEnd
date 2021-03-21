@@ -19,21 +19,24 @@ const GroupPreview = (props) => {
       }}
     >
       <div
-        style={{
-          margin: "1vh 1vw",
-        }}
-      >
-        <ImageHolder filler={filler}/>
-      </div>
-      <div className={classes.Bottom}>
-        <div className={classes.CourseTitle}>{props.Title}</div>
-        <div className={classes.CourseDes}>
-          {props.Desc}
+      onClick={props.show}>
+        <div
+          style={{
+            margin: "1vh 1vw",
+          }}
+        >
+          <ImageHolder filler={filler}/>
+        </div>
+        <div className={classes.Bottom}>
+          <div className={classes.CourseTitle}>{props.Title}</div>
+          <div className={classes.CourseDes}>
+            {props.Desc}
+          </div>
         </div>
       </div>
       <div onClick={props.dismiss} className={classes.dismiss}>
-        <FontAwesomeIcon icon={faTimesCircle} size="4x" />
-      </div>
+          <FontAwesomeIcon icon={faTimesCircle} size="4x" />
+        </div>
     </Card>
   );
 };

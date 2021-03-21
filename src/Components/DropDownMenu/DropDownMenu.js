@@ -7,6 +7,7 @@ import InMessages from'./Messages/Messages';
 const DropDownMenu = (props) => {
   const Menu = (
     <Card
+    key={1}
       style={{
         padding: "0",
         maxHeight: "40vh",
@@ -20,6 +21,7 @@ const DropDownMenu = (props) => {
 
   const Notif = (
     <Card
+    key={2}
       style={{
         padding: "0",
         maxHeight: "40vh",
@@ -33,6 +35,7 @@ const DropDownMenu = (props) => {
 
   const Messages = (
     <Card
+    key={3}
       style={{
         padding: "0",
         maxHeight: "40vh",

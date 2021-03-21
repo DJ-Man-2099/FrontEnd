@@ -7,8 +7,12 @@ import GroupsArea from "../GroupsArea/GroupsArea";
 import RecommendedGroups from "../RecommendedGroups/GroupsArea";
 import PostsArea from "../PostsArea/PostsArea";
 import Upcoming from "../Upcoming/Upcoming";
+import Post from "../../Components/Post/Post"
 
 const HomePage = (props) => {
+
+
+
   return (
     <div className={classes.Main}>
       <Card

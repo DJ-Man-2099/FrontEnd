@@ -9,7 +9,6 @@ import GroupDescription from "../GroupDesc/GroupDesc.js";
 
 const HomePage = (props) => {
   const [id, isJoined] = [props.match.params.id, props.match.params.isJoined];
-  console.log(id);
   const [Title, setTitle] = useState("");
   const [Desc, setDesc] = useState("");
   const [Main, setMain] = useState(classes.otherMain);
@@ -28,15 +27,18 @@ const HomePage = (props) => {
     show();
   };
 
-
-
   useEffect(() => {
     //Loading Data from Server
     const groupData = [];
-    const posts = []
+    const posts = [];
     for (let index = 0; index < 20; index++) {
       posts.push(
-        <Post key={index} Title={`Post ${index+1}`} Content={`Blah Blah Blah .....`}/>)
+        <Post
+          key={index}
+          Title={`Post ${20 - index}`}
+          Content={`Blah Blah Blah .....`}
+        />
+      );
       groupData.push({
         id: index,
         Title: `Group ${index + 1}`,
@@ -47,11 +49,21 @@ const HomePage = (props) => {
         setDesc(groupData[id].Desc);
       }
     }
-    setPosts(posts)
+    setPosts(posts);
   }, [id]);
 
-  const SubmitPost = (event) => {
-    console.log(event.target.value);
+  const SubmitPost = (post) => {
+    console.log(post);
+    let temp = [
+      <Post
+        key={Posts.length}
+        Title={`Post ${Posts.length + 1}`}
+        Content={post}
+      />,
+      ...Posts,
+    ];
+    setPosts(temp);
+    hide();
   };
 
   return (
@@ -69,17 +81,34 @@ const HomePage = (props) => {
         <div className={classes.Center}>
           <div
             style={{
-              width:'75%'
+              width: "75%",
             }}
           >
             <Card
               style={{
-                width: '100%',
+                width: "100%",
                 alignItems: "flex-start",
                 height: "fit-content",
               }}
             >
-              <h1>{Title}</h1>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  width: "100%",
+                }}
+              >
+                <h1>{Title}</h1>
+                {isJoined === "false" ? (
+                  <input
+                    type="button"
+                    value="Join Group"
+                    className={classes.Join}
+                    onClick={props.Joining.bind(this,id)}
+                  />
+                ) : null}
+              </div>
               <div
                 style={{
                   width: "100%",
@@ -87,51 +116,53 @@ const HomePage = (props) => {
                   justifyContent: "center",
                 }}
               >
-                <Card shadow>
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                    }}
-                  >
-                    <label
+                {isJoined === "true" ? (
+                  <Card shadow>
+                    <div
                       style={{
-                        flex: "1",
-                        fontSize: "20px",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
                       }}
                     >
-                      Write a new Post Here
-                    </label>
-                    <div className={Main}>
-                      <input
+                      <label
                         style={{
-                          cursor: "pointer",
-                          textAlign: "start",
-                          color: "rgb(78, 78, 78)",
+                          flex: "1",
+                          fontSize: "20px",
                         }}
-                        value="What's on Your Mind?"
-                        type="button"
-                        className={classes.input}
-                        onClick={Focus}
-                      />
+                      >
+                        Write a new Post Here
+                      </label>
+                      <div className={Main}>
+                        <input
+                          style={{
+                            cursor: "pointer",
+                            textAlign: "start",
+                            color: "rgb(78, 78, 78)",
+                          }}
+                          value="What's on Your Mind?"
+                          type="button"
+                          className={classes.input}
+                          onClick={Focus}
+                        />
+                      </div>
                     </div>
-                  </div>
-                </Card>
+                  </Card>
+                ) : null}
               </div>
-              <div style={{
-                width: '100%',
-                display: 'flex',
-                flexFlow: 'column',
-                alignItems: 'center',
-              }}>
-                <div className={classes.posts}>
-                  {Posts}
-                </div>
+              <div
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  flexFlow: "column",
+                  alignItems: "center",
+                }}
+              >
+                <div className={classes.posts}>{Posts}</div>
               </div>
             </Card>
           </div>
-          <GroupDescription desc={Desc}/>
+          <GroupDescription desc={Desc} />
         </div>
       </Card>
     </div>

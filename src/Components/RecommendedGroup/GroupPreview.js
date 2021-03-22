@@ -71,7 +71,7 @@ const GroupPreview = (props) => {
           className={classes.Button}
           onClick={() => {
             alert("Group Joined");
-            props.dismiss()
+            props.Joining();
           }}
         >
           Join Group

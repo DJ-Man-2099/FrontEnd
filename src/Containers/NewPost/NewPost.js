@@ -6,9 +6,19 @@ import { faTimesCircle } from "@fortawesome/free-regular-svg-icons";
 const NewPost = (props) => {
   const [enabled, setenabled] = useState(false);
 
+  const [Content, setContent] = useState("");
+
   const enable = (event) => {
-    if (event.target.value !== "") setenabled(true);
-    else setenabled(false);
+    if (event.target.value !== "") {
+      setContent(event.target.value);
+      setenabled(true);
+    } else setenabled(false);
+  };
+
+  const Submit = () => {
+    props.submit(Content);
+    setContent("");
+    setenabled(false);
   };
 
   return (
@@ -19,6 +29,7 @@ const NewPost = (props) => {
       </div>
 
       <textarea
+        value={Content}
         onChange={enable}
         className={classes.input}
         placeholder="Write a New Post"
@@ -28,6 +39,7 @@ const NewPost = (props) => {
         type="button"
         disabled={!enabled}
         value="Post"
+        onClick={Submit}
       />
     </div>
   );

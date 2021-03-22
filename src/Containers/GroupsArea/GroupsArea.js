@@ -9,31 +9,24 @@ import {
 
 class GroupsArea extends Component {
   state = {
-    Groups: [],
+    Groups: this.props.Groups,
+    ids: Array.from(this.props.Groups.keys()),
   };
 
   constructor(props) {
     super(props);
     this.GroupsArea = React.createRef();
-    for (let index = 0; index < 10; index++) {
-      this.state.Groups.push({
-        id: index,
-        Title: `Group ${index + 1}`,
-        Desc: "Blah Blah Blah",
-      });
-    }
   }
 
   render() {
     let Groups = [];
-
-    for (let index = 0; index < this.state.Groups.length; index++) {
+    for (let index = 0; index < this.state.ids.length; index++) {
       Groups.push(
         <GroupPreview
-        id={this.state.Groups[index].id}
+        id={this.state.ids[index]}
           key={index}
-          Title={this.state.Groups[index].Title}
-          Desc={this.state.Groups[index].Desc}
+          Title={this.state.Groups.get(this.state.ids[index]).Title}
+          Desc={this.state.Groups.get(this.state.ids[index]).Desc}
         />
       );
     }

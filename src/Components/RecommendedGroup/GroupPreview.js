@@ -7,7 +7,7 @@ import filler from "../../assets/Filler.png";
 import ImageHolder from "../ImageHolder/ImageHolder";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimesCircle } from "@fortawesome/free-regular-svg-icons";
-
+import {withRouter} from "react-router-dom";
 const GroupPreview = (props) => {
   let Joined = [];
 
@@ -55,6 +55,9 @@ const GroupPreview = (props) => {
       }}
     >
       <div
+      onClick={
+        ()=>props.history.push(`/group/${props.id}/false`)
+      }
         style={{
           margin: "5% 5%",
         }}
@@ -82,4 +85,4 @@ const GroupPreview = (props) => {
   );
 };
 
-export default GroupPreview;
+export default withRouter(GroupPreview);

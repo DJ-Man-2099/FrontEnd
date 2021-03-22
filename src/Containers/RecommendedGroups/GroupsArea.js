@@ -7,8 +7,9 @@ class GroupsArea extends Component {
 
   constructor() {
     super();
-    for (let index = 0; index < 5; index++) {
+    for (let index = 10; index < 20; index++) {
       this.state.Groups.push({
+        id: index,
         Title: `Group ${index + 1}`,
         Desc: "Blah Blah Blah",
       });
@@ -56,6 +57,7 @@ class GroupsArea extends Component {
               >
                 {this.state.Groups.length !== 0 ? (
                   <GroupPreview
+                  id={this.state.Groups[this.state.Groups.length - 1].id}
                     Title={
                       this.state.Groups[this.state.Groups.length - 1].Title
                     }
@@ -85,7 +87,7 @@ class GroupsArea extends Component {
               >
                 {this.state.Groups.length > 1 ? (
                   <GroupPreview
-                    Main
+                    id={this.state.Groups[this.state.Groups.length - 2].id}
                     Title={
                       this.state.Groups[this.state.Groups.length - 2].Title
                     }

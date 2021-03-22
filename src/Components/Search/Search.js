@@ -1,6 +1,6 @@
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import classes from "./Search.module.css";
 import Card from "../Card/Card";
 
@@ -22,8 +22,6 @@ const Search = (props) => {
   ];
 
   const [suggest, setSuggest] = useState([]);
-
-  const input = useRef();
 
   const Focus = () => {
     setMain(classes.Main + " " + classes.Focus);
@@ -60,6 +58,7 @@ const Search = (props) => {
       {suggest.length !== 0 ? (
         <div className={classes.suggest}>
           <Card
+          shadow
             style={{
               minWidth: '0',
               padding: "0",

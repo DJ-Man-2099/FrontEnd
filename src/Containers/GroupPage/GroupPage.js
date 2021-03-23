@@ -6,6 +6,7 @@ import Modal from "../../Components/Modal/Modal";
 import NewPost from "../NewPost/NewPost";
 import Post from "../Post/Post";
 import GroupDescription from "../GroupDesc/GroupDesc.js";
+import {withRouter} from 'react-router-dom'
 
 const HomePage = (props) => {
   const [id, isJoined] = [props.match.params.id, props.match.params.isJoined];
@@ -105,7 +106,10 @@ const HomePage = (props) => {
                     type="button"
                     value="Join Group"
                     className={classes.Join}
-                    onClick={props.Joining.bind(this,id)}
+                    onClick={() => {
+                      props.Joining(id);
+                      props.history.push('/')
+                    }}
                   />
                 ) : null}
               </div>
@@ -169,4 +173,4 @@ const HomePage = (props) => {
   );
 };
 
-export default HomePage;
+export default withRouter(HomePage);

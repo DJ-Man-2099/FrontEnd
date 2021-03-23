@@ -16,21 +16,13 @@ const App = () => {
 
   const [Recommended, setRecommended] = useState(new Map());
   const [Joined, setJoined] = useState(new Map());
-
   const Joining = (index) => {
-    //TODO: Fix this Dark Magic
-    let temp1 = Recommended;
-    let temp2 = Joined;
-    console.log(index);
-    console.log(temp1);
-    let group = JSON.parse(JSON.stringify({ ...temp1.get(index) }));
-    console.log(group);
-    temp2.set(index, group);
-    temp1.delete(index);
-    console.log(group);
-    setJoined(temp2);
+    let group = Recommended.get(Number(index))
+    Joined.set(Number(index), group);
+    Recommended.delete(Number(index));
     console.log(Joined);
-    setRecommended(temp1);
+    let t = new Map(Joined.entries());
+    setJoined(t)
   };
 
   useEffect(() => {
@@ -91,14 +83,10 @@ const App = () => {
               />
               <Route
                 path="/Course/:id/:isJoined/Marks"
-                render={(props) => (
-                  <MarkEdit
-                    {...props}
-                  />
-                )}
+                render={(props) => <MarkEdit {...props} />}
               />
               <Route
-              exact
+                exact
                 path="/Course/:id/:isJoined"
                 render={(props) => (
                   <CoursePage
@@ -117,16 +105,9 @@ const App = () => {
               />
               <Route
                 path="/Videos"
-                render={(props) => (
-                  <Vedioplayer {...props}/>
-                )}
+                render={(props) => <Vedioplayer {...props} />}
               />
-              <Route
-                path="/Pdfs"
-                render={(props) => (
-                  <Pdf {...props} />
-                )}
-              />
+              <Route path="/Pdfs" render={(props) => <Pdf {...props} />} />
             </React.Fragment>
           ) : (
             <React.Fragment>

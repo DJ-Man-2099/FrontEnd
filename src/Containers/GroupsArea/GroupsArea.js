@@ -8,10 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 class GroupsArea extends Component {
-  state = {
-    Groups: this.props.Groups,
-    ids: Array.from(this.props.Groups.keys()),
-  };
+  
 
   constructor(props) {
     super(props);
@@ -19,14 +16,15 @@ class GroupsArea extends Component {
   }
 
   render() {
+    let ids = Array.from(this.props.Groups.keys())
     let Groups = [];
-    for (let index = 0; index < this.state.ids.length; index++) {
+    for (let index = 0; index < ids.length; index++) {
       Groups.push(
         <GroupPreview
-        id={this.state.ids[index]}
+        id={ids[index]}
           key={index}
-          Title={this.state.Groups.get(this.state.ids[index]).Title}
-          Desc={this.state.Groups.get(this.state.ids[index]).Desc}
+          Title={this.props.Groups.get(ids[index]).Title}
+          Desc={this.props.Groups.get(ids[index]).Desc}
         />
       );
     }

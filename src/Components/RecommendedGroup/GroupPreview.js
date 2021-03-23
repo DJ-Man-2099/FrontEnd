@@ -71,6 +71,7 @@ const GroupPreview = (props) => {
           className={classes.Button}
           onClick={() => {
             alert("Group Joined");
+            console.log('Called From Preview')
             props.Joining();
           }}
         >

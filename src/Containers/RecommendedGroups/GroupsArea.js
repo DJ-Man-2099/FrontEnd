@@ -21,7 +21,8 @@ class GroupsArea extends Component {
         : null,
   };
 
-  Joining = (id) => {
+  ToJoining = (id) => {
+    console.log('Caliing from Recommended Groups')
     this.setState(() => {
       return {
         dismissed: true,
@@ -98,7 +99,7 @@ class GroupsArea extends Component {
               >
                 {this.state.lastid? (
                   <GroupPreview
-                  Joining={this.Joining.bind(this,this.state.lastid)}
+                  Joining={this.ToJoining.bind(this,this.state.lastid)}
                     id={this.state.lastid}
                     Title={this.state.Groups.get(this.state.lastid).Title}
                     Desc={this.state.Groups.get(this.state.lastid).Desc}
@@ -127,7 +128,6 @@ class GroupsArea extends Component {
               >
                 {this.state.preLastid ? (
                   <GroupPreview
-                  Joining={this.Joining.bind(this, this.state.preLastid)}
                     id={this.state.preLastid}
                     Title={this.state.Groups.get(this.state.preLastid).Title}
                     Desc={this.state.Groups.get(this.state.preLastid).Desc}

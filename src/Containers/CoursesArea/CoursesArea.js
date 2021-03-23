@@ -2,8 +2,11 @@ import classes from "./CoursesArea.module.css";
 import React, { Component } from "react";
 import CoursePreview from "../../Components/CoursePreview/CoursePreview";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
-
+import {
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
+import {withRouter} from 'react-router-dom'
 class CoursesArea extends Component {
   constructor(props) {
     super(props);
@@ -14,14 +17,21 @@ class CoursesArea extends Component {
     let courses = [];
 
     for (let index = 0; index < 15; index++) {
-      courses.push(
-        <CoursePreview key={index}/>
-      );
+      courses.push(<CoursePreview key={index} />);
     }
 
     return (
       <div className={classes.CoursesArea}>
-        <div className={classes.Title}>Courses You're Taking</div>
+        <div style={{
+          display: 'flex',
+          width: '100%',
+          justifyContent: "space-between",
+        }}>
+          <div className={classes.Title}>Courses You're Taking</div>
+          <button onClick={
+            ()=> this.props.history.push('/Courses')
+          }>See All Courses</button>
+        </div>
         <div className={classes.SwipeList}>
           <div
             className={classes.Right}
@@ -29,17 +39,18 @@ class CoursesArea extends Component {
               this.CoursesArea.current.scrollLeft -= 250;
             }}
           >
-            <FontAwesomeIcon icon={faChevronLeft} size='4x'/>
+            <FontAwesomeIcon icon={faChevronLeft} size="4x" />
           </div>
           <div className={classes.InnerSwipeList} ref={this.CoursesArea}>
-          {courses}
+            {courses}
           </div>
-          <div className={classes.Left}            
+          <div
+            className={classes.Left}
             onClick={() => {
               this.CoursesArea.current.scrollLeft += 250;
             }}
           >
-          <FontAwesomeIcon icon={faChevronRight} size='4x'/>
+            <FontAwesomeIcon icon={faChevronRight} size="4x" />
           </div>
         </div>
       </div>
@@ -47,4 +58,4 @@ class CoursesArea extends Component {
   }
 }
 
-export default CoursesArea;
+export default withRouter(CoursesArea);

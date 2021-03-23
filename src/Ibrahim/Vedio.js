@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ReactPlayer from "react-player";
-import Navbar from '../navbar/Navbar';
-import VideoPlayer from 'react-video-markers';
+//import Navbar from '../navbar/Navbar';
 import './Vedio.css';
 
 class Vedioplayer extends Component {
@@ -72,7 +71,7 @@ class Vedioplayer extends Component {
   render() {
     return (
       <div>
-          <Navbar/>
+          {/*<Navbar/>*/}
           <div className= "container">
         <div className="Vedio">
            <ReactPlayer

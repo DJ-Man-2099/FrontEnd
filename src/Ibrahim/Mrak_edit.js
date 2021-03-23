@@ -1,7 +1,6 @@
 import React , {Component} from 'react';
 //import  from ''
 import './Mark_edit.css'
-import Nav from '../navbar/Navbar'
 import {
     BrowserRouter as Router,
     Switch,
@@ -60,7 +59,6 @@ class MarkEdit extends Component {
                 <Router>
                 </Router>
                 <div className="main">
-                <Nav/>
                 <p> COURSE NAME</p>
                 <table>
                 <tr>

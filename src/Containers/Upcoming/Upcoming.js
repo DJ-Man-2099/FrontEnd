@@ -50,6 +50,7 @@ class Upcoming extends Component {
 
     return (
       <div className={classes.upcoming}>
+    {/*TODO: Add Add Event Button Here*/}
         <div className={classes.Title}>Upcoming Event</div>
         <div className={classes.EventTitle}>
           This Paragraph is for the Title of the Upcoming Event

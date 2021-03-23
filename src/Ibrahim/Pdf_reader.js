@@ -1,4 +1,4 @@
-import React, { useState, Component } from 'react';
+import React from "react";
 // import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
 
 // import samplePDF from './projectdatabase.pdf';
@@ -31,7 +31,6 @@ import React, { useState, Component } from 'react';
 // import PDFReader from "react-pdf-reader";
 // import "react-pdf-reader/dist/TextLayerBuilder.css";
 // import "react-pdf-reader/dist/PdfReader.css";
-
 
 // import { Worker ,  Viewer } from '@react-pdf-viewer/core';
 // // import pdf1 from "https://www.cambridgeenglish.org/images/young-learners-sample-papers-2018-vol1.pdf";
@@ -149,20 +148,21 @@ import React, { useState, Component } from 'react';
 
 const pdf = () => {
   return (
-    <div>
-      <iframe 
-      src="https://www.cambridgeenglish.org/images/young-learners-sample-papers-2018-vol1.pdf"
+    <div
+    style={{
+      height:"100vh"
+    }}
+    >
+      <iframe
+        title="PDF"
+        src="https://www.cambridgeenglish.org/images/young-learners-sample-papers-2018-vol1.pdf"
         frameborder="0"
-        height="1200px"
+        height='100%'
         width="100%"
-        allowfullscreen = 'true'
-        >
-
-      </iframe>
+        allowfullscreen="true"
+      ></iframe>
     </div>
-  )
-}
-
-
+  );
+};
 
 export default pdf;

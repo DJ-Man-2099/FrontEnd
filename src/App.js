@@ -5,6 +5,11 @@ import HomePage from "./Containers/HomePage/HomePage";
 import React, { useState, useEffect } from "react";
 import ProfilePage from "./Containers/ProfilePage/ProfilePage";
 import GroupPage from "./Containers/GroupPage/GroupPage";
+import CoursesPage from "./Containers/CoursesPage/HomePage";
+import CoursePage from "./Containers/CoursePage/GroupPage";
+import Vedioplayer from "./Ibrahim/Vedio";
+import Pdf from "./Ibrahim/Pdf_reader";
+import MarkEdit from "./Ibrahim/Mrak_edit";
 
 const App = () => {
   const [logged, setLogged] = useState(true);
@@ -16,15 +21,15 @@ const App = () => {
     //TODO: Fix this Dark Magic
     let temp1 = Recommended;
     let temp2 = Joined;
-    console.log(index)
-    console.log(temp1)
-    let group = JSON.parse(JSON.stringify({...temp1.get(index)}));
-    console.log(group)
+    console.log(index);
+    console.log(temp1);
+    let group = JSON.parse(JSON.stringify({ ...temp1.get(index) }));
+    console.log(group);
     temp2.set(index, group);
     temp1.delete(index);
     console.log(group);
     setJoined(temp2);
-    console.log(Joined)
+    console.log(Joined);
     setRecommended(temp1);
   };
 
@@ -76,7 +81,50 @@ const App = () => {
               <Route
                 path="/group/:id/:isJoined"
                 render={(props) => (
-                  <GroupPage {...props} Name="David John" id="5" Joining={Joining}/>
+                  <GroupPage
+                    {...props}
+                    Name="David John"
+                    id="5"
+                    Joining={Joining}
+                  />
+                )}
+              />
+              <Route
+                path="/Course/:id/:isJoined/Marks"
+                render={(props) => (
+                  <MarkEdit
+                    {...props}
+                  />
+                )}
+              />
+              <Route
+              exact
+                path="/Course/:id/:isJoined"
+                render={(props) => (
+                  <CoursePage
+                    {...props}
+                    Name="David John"
+                    id="5"
+                    Joining={Joining}
+                  />
+                )}
+              />
+              <Route
+                path="/Courses"
+                render={(props) => (
+                  <CoursesPage {...props} Name="David John" id="5" />
+                )}
+              />
+              <Route
+                path="/Videos"
+                render={(props) => (
+                  <Vedioplayer {...props}/>
+                )}
+              />
+              <Route
+                path="/Pdfs"
+                render={(props) => (
+                  <Pdf {...props} />
                 )}
               />
             </React.Fragment>
@@ -85,6 +133,10 @@ const App = () => {
               <Redirect from="/" exact to="login" />
               <Redirect from="/profile" exact to="login" />
               <Redirect from="/group" to="login" />
+              <Redirect from="/Courses" exact to="login" />
+              <Redirect from="/Videos" exact to="login" />
+              <Redirect from="/Pdfs" exact to="login" />
+              <Redirect from="/Course" to="login" />
             </React.Fragment>
           )}
           <Route

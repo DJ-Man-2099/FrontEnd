@@ -81,7 +81,6 @@ class MarkEdit extends Component {
                     <td>
                         <input type="number"  onChange={this.mark}/>
                         <pre> out of 50 </pre>
-                        <button onClick={this.sumbit}> sumbut the mark</button>
                     </td> 
                 </tr>
                 )})}

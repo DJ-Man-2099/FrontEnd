@@ -9,7 +9,7 @@ class LoginPage extends Component {
     return (
       <div className={classes.Main}>
         <Card row shadow>
-          <Login SignIn={this.props.SignIn} SignUp={this.props.SignUp} />
+          <Login SignIn={this.props.SignIn} SignUp={this.props.SignUp} Home={this.props.Home}/>
           <div className={classes.Blue}>
             <img src={image} alt="" className={classes.Image} />
           </div>

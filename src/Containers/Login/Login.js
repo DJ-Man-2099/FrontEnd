@@ -3,6 +3,7 @@ import classes from "./Login.module.css";
 import LoginField from "../../Components/LoginField/LoginField";
 import ButtonArray from "../../Components/ButtonArray/ButtonArray";
 import { withRouter } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 
 class Login extends Component {
   state = {
@@ -13,18 +14,28 @@ class Login extends Component {
   };
 
   signin = () =>
-    this.handleSigninCLicked(() => {
-      alert("Sign in Sucessfully");
-      this.props.SignIn();
-      this.props.history.push("/");
+    this.handleSigninCLicked((Data) => {
+
+      this.props.SignIn(Data).then((res) => {
+        if (res) {
+          console.log(jwt_decode(res))
+          localStorage.setItem('token',res);
+          this.props.history.push('/')
+          this.props.Home()
+        }
+        else
+          alert("Login Failed")
+      })
+
     });
 
   handleSigninCLicked = (callBack) => {
-    console.log("Signing in");
     if (this.state.Email !== "" && this.state.Password !== "") {
       //This is where you add the Sign in Logic
-      callBack();
-      this.initSignin();
+      callBack({
+        "email": this.state.Email,
+        "password": this.state.Password
+      });
     } else {
       this.HandleSigninError();
     }

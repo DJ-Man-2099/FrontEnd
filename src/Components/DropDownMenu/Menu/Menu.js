@@ -6,13 +6,17 @@ const Menu = (props) => {
   return (
     <React.Fragment>
       <h2 onClick={
-        ()=>{
+        () => {
           props.history.push("/profile");
         }
       }>View Profile</h2>
       <h2>Open Settings</h2>
       <h2>Enroll in Courses</h2>
-      <h2>Sign Out</h2>
+      <h2 onClick={
+        () => {
+          localStorage.removeItem('token')
+          props.history.push("/login");
+        }}>Sign Out</h2>
     </React.Fragment>
   );
 };

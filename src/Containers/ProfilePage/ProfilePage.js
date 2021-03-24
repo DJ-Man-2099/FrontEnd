@@ -35,7 +35,7 @@ const HomePage = (props) => {
               }}
             >
               <CoursesArea />
-              <GroupsArea />
+              <GroupsArea Groups={props.Joined} />
               <div
                 style={{
                   display: "flex",

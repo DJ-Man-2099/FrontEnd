@@ -16,6 +16,21 @@ const SignUpField = (props) => {
         Name="Email"
         onChange={props.onChange}
       />
+      <NormalTextField
+        Error={props.NationalIDError}
+        Name="NationalID"
+        onChange={props.onChange}
+      />
+      <NormalTextField
+        Error={props.BirthdayError}
+        Name="Birthday"
+        onChange={props.onChange}
+      />
+      <NormalTextField
+        Error={props.RoleError}
+        Name="Role"
+        onChange={props.onChange}
+      />
       <PasswordTextField
         Error={props.PasswordError}
         onChange={props.onChange}

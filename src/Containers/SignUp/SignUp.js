@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import SignUpField from "../../Components/SignUpField/SignUpField";
+import classes from "./SignUp.module.css";
+import ButtonArray from "../../Components/ButtonArray/ButtonArray";
 
 class SignUp extends Component {
   state = {
@@ -7,33 +9,49 @@ class SignUp extends Component {
     Email: "",
     Password: "",
     Agreed: false,
+    NationalID: '',
+    Birthday: '',
+    Role: "",
     UserNameError: false,
     EmailError: false,
+    NationalIDError: false,
+    BirthdayError: false,
+    RoleError: false,
     PasswordError: false,
     AgreedError: false,
   };
 
   signup = () =>
-    this.handleSignupCLicked(() => {
-      alert("Sign up Sucessfully");
-      this.props.SignUp();
+    this.handleSignupCLicked((Data) => {
+      this.props.SignUp(Data);
     });
 
   handleSignupCLicked = (callBack) => {
     if (
       this.state.UserName !== "" &&
       this.state.Email !== "" &&
+      this.state.NationalID !== "" &&
+      this.state.Birthday !== "" &&
+      this.state.Role !== "" &&
       this.state.Password !== "" &&
       this.state.Agreed
     ) {
-      callBack();
+      callBack(
+        {
+          "name": this.state.UserName,
+          "email": this.state.Email,
+          "national_id": this.state.NationalID,
+          "birthday": this.state.Birthday,
+          "password": this.state.Password,
+          "role": this.state.Role
+        }
+      );
     } else {
       this.HandleSignupError();
     }
   };
 
   changeInput = (event) => {
-    console.log(event.target.value);
     this.setState({
       [event.target.name]: event.target.value,
     });
@@ -73,6 +91,21 @@ class SignUp extends Component {
         UserNameError: true,
       });
     }
+    if (this.state.NationalID === "") {
+      this.setState({
+        NationalIDError: true,
+      });
+    }
+    if (this.state.Birthday === "") {
+      this.setState({
+        BirthdayError: true,
+      });
+    }
+    if (this.state.Role === "") {
+      this.setState({
+        RoleError: true,
+      });
+    }
     if (!this.state.Agreed) {
       this.setState({
         AgreedError: true,
@@ -88,6 +121,9 @@ class SignUp extends Component {
       Password: "",
       Agreed: false,
       UserNameError: false,
+      NationalIDError: false,
+      BirthdayError: false,
+      RoleError: false,
       EmailError: false,
       PasswordError: false,
     });
@@ -98,6 +134,9 @@ class SignUp extends Component {
       <SignUpField
         UserNameError={this.state.UserNameError}
         EmailError={this.state.EmailError}
+        NationalIDError={this.state.NationalIDError}
+        BirthdayError={this.state.BirthdayError}
+        RoleError={this.state.RoleError}
         onChange={this.changeInput}
         PasswordError={this.state.PasswordError}
         checked={this.state.Agreed}
@@ -105,7 +144,16 @@ class SignUp extends Component {
         AgreedError={this.state.AgreedError}
       />
     );
-    return signupField;
+
+    return <div className={classes.Login}>
+      <h1 className={classes.MainTitle}>Get Started</h1>
+      <div className={classes.Main}>{signupField}</div>
+      <ButtonArray
+        logging_in={this.state.logging_in}
+        SigninCLicked={this.signin}
+        SignupCLicked={this.signup}
+      />
+    </div>;
   }
 }
 

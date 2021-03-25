@@ -9,8 +9,9 @@ const NewPost = (props) => {
   const [Content, setContent] = useState("");
 
   const enable = (event) => {
+    setContent(event.target.value);
+
     if (event.target.value !== "") {
-      setContent(event.target.value);
       setenabled(true);
     } else setenabled(false);
   };
